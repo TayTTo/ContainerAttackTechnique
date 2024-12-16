@@ -45,6 +45,9 @@
 #### Abusing kernel vulnerabilities.
 - Attackers can abuse kernel vulnerabilities in the system's operating system to gain higher access right to the system. For example: Abuse kernel vulnerabilities to gain root access to the system.
 
+#### Abusing volume hostPath mount.
+- Attackers can escape pod's containerized environment and have higher access right to the systeme by creating a pod that mount the entire node's root filesystem using the hostPath volume.
+
 ## Reference
 1. https://www.practical-devsecops.com/container-security-risks/ 
 2. https://devsecopsguides.com/docs/attacks/container/
