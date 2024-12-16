@@ -42,3 +42,11 @@
 #### Create long-lived token.
 - By someway, the attacker can gain such token and have an unexpected long period of time to access to the system.
 
+#### Abusing kernel vulnerabilities.
+- Attackers can abuse kernel vulnerabilities in the system's operating system to gain higher access right to the system. For example: Abuse kernel vulnerabilities to gain root access to the system.
+
+## Reference
+1. https://www.practical-devsecops.com/container-security-risks/ 
+2. https://devsecopsguides.com/docs/attacks/container/
+3. https://www.panoptica.app/research/7-ways-to-escape-a-container
+
