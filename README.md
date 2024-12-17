@@ -32,6 +32,7 @@
 
 #### Container image tampering.
 - Modifying or replacing container images with malicious versions that may contain malware, backdoors, or vulneralbe components.
+#### Privilege escalation through node/proxy permissions
 
 #### Denial of services(Dos)
 - Consume resource of container to disrupt the ability of containerized applications
@@ -48,6 +49,75 @@
 #### Abusing volume hostPath mount.
 - Attackers can escape pod's containerized environment and have higher access right to the systeme by creating a pod that mount the entire node's root filesystem using the hostPath volume.
 
+
+## Some CVE related to container attacks.
+1. CVE-2024-8695
+- CVSS 3.1(Common Vulnerability Scoring System) score 9.8 of 10:
+- Attack complexity: Low
+- Confidentially: High
+- Integrity: High
+- Availability: High
+- Scope: Unchanged
+- Privileges required: None
+- Published: Sep 13, 2024.
+- CWE ID 94: Improper Control of Generation of Code ('Code Injection')
+- CWE ID 79:Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') 
+
+- Summary information:
+    - Remote code execution vulnerability affecting Docker Desktop versions prior to 4.34.2.
+    - Exploitable through malicious extensions.
+    - High risk with potential impacts on confidentiality, integrity, and availability.
+    - To avoid this breach, user should update to version 4.34.2
+
+- Reference for this CVE:
+    - https://www.recordedfuture.com/vulnerability-database/CVE-2024-8695
+    - https://nvd.nist.gov/vuln/detail/CVE-2024-8695
+    - https://securityonline.info/cve-2024-8695-cve-2024-8696-two-critical-rce-flaws-discovered-in-docker-desktop/?&web_view=true#google_vignette
+
+
+2. CVE-2021-41091.
+- CVSS 3.1: 6.3
+- Attack complexity: Low 
+- Confidentially: Low
+- Integrity: Low
+- Availability: Low
+- Scope: changed
+- Privileges required: Low
+- Published: Sep 15, 2021. (Source: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41091)
+- CWE-732: Incorrect Permission Assignment for Critical Resource.
+- CWE-281: Improper Preservation of Permissions.
+
+- Summary:
+    - Related to Moby (an open-source project).
+    - Data directory contains subdirectories with low restriction in permissions, allow unprivileged user to traverse directory.
+    - The bug have been fixed in version 20.10.9 in Moby.
+
+
+- References:
+    - https://nvd.nist.gov/vuln/detail/cve-2021-41091
+    - https://www.suse.com/security/cve/CVE-2021-41091.html
+    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41091
+
+
+3. CVE-2024-6222
+- CVSS 4.0: 7.3
+- Attack complexity: High
+- Confidentially: High
+- Integrity: High
+- Availability: High
+- Scope: Unchanged
+- Privileges required: Low
+- Published: Jul 10, 2024
+- CWE-923: Improper restriction of Communication Chanel to Intended Endpoints.
+
+- Summary:
+    - Relates to Docker Desktop before v4.29.0.
+    - Attackers who can access to Docker Desktop VM through container breakout can further escape to the host.
+    - At version 4.29.0, this problem is fixed and then in v4.31.0 enable "Allow only extensions distributed through the Docker Marketplace" by default to avoid this kind of exploitation.
+- References:
+    - https://www.cve.org/CVERecord?id=CVE-2024-6222
+    - https://nvd.nist.gov/vuln/detail/CVE-2024-6222
+    - https://feedly.com/cve/CVE-2024-6222
 ## Reference
 1. https://www.practical-devsecops.com/container-security-risks/ 
 2. https://devsecopsguides.com/docs/attacks/container/
